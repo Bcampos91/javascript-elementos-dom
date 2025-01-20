@@ -15,3 +15,7 @@ curtoBt.addEventListener('click',() => {
 longoBt.addEventListener('click',()=> {
     html.setAttribute('data-contexto','descanso-longo')
 })
+
+const html =document.querySelector('html')
+const temporizador = document.querySelector('.app__card-timer')
+const 
