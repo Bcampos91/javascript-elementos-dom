@@ -9,33 +9,42 @@ const titulo = document.querySelector('.app__title')
 const tempFoco = '1500'
 const tempDescansoCurto = '300'
 const TempDescansoLongo = '900'
-const banner = document.querySelector('.app__image')
+const banner = document.querySelector('#imagem')
 
-focoBt.addEventListener('click',() => {
-    html.setAttribute('data-contexto','foco')
-    banner.setAttribute('src','imagens/foco.png')
-    frase.setAttribute('Otimize sua produtividade','bcshcbhscb')
+focoBt.addEventListener('click', () => {
+    alterarContexto('foco')
 })
 
-curtoBt.addEventListener('click',() => {
-    html.setAttribute('data-contexto','descanso-curto')
-    banner.setAttribute('src','imagens/descanso-curto.png')
+curtoBt.addEventListener('click', () => {
+    alterarContexto('descanso-curto')
+})
+    
+
+longoBt.addEventListener('click', () => {
+    alterarContexto('descanso-longo')
+})
+function alterarContexto(contexto){
+    html.setAttribute('data-contexto', contexto)
+    banner.setAttribute('src',`imagens/${contexto}.png`)
     switch (contexto) {
         case "foco":
-            titulo.innerHTML =` Otimize sua produtividade,<br>
+            titulo.innerHTML =`
+            Otimize sua produtividade,<br>
                 <strong class="app__title-strong">mergulhe no que importa.</strong>`
-            
             break;
-    
+        case "descanso-curto":
+            titulo.innerHTML = `
+            Que tal dar uma respirada?,<br>
+                <strong class="app__title-strong">Faça uma pausa curta</strong>`
+            break;
+        case "descanso-longo":
+            titulo.innerHTML = `
+            Hora de voltar á superficie,<br>
+                <strong class="app__title-strong">Faça um descanso longo.</strong>`        
         default:
             break;
     }
-
-longoBt.addEventListener('click',()=> {
-    html.setAttribute('data-contexto','descanso-longo')
-    banner.setAttribute('src','imagens/descanso-longo.png')
-})
-
+}
 
 
 
