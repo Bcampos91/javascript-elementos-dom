@@ -10,20 +10,27 @@ const tempFoco = '1500'
 const tempDescansoCurto = '300'
 const TempDescansoLongo = '900'
 const banner = document.querySelector('#imagem')
+const botoes = document.querySelectorAll('.app__card-button')//para selecionar mais de um elemento 
 
 focoBt.addEventListener('click', () => {
     alterarContexto('foco')
+    focoBt.classList.add('active')//add class
 })
 
 curtoBt.addEventListener('click', () => {
     alterarContexto('descanso-curto')
+    curtoBt.classList.add('active')//add class
 })
     
 
 longoBt.addEventListener('click', () => {
     alterarContexto('descanso-longo')
+    longoBt.classList.add('active'//add class
 })
 function alterarContexto(contexto){
+    botoes.forEach(function (contexto){//para selecionar cada um dos elementos ao clicar
+        contexto.classList.remove('active')//para remover class
+    })
     html.setAttribute('data-contexto', contexto)
     banner.setAttribute('src',`imagens/${contexto}.png`)
     switch (contexto) {
