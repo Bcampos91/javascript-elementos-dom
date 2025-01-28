@@ -1,3 +1,4 @@
+
 const html = document.querySelector('html')
 const botaoIniciar = document.querySelector('#start-pause')
 const focoBt = document.querySelector('.app__card-button--foco ');
@@ -11,6 +12,17 @@ const tempDescansoCurto = '300'
 const TempDescansoLongo = '900'
 const banner = document.querySelector('#imagem')
 const botoes = document.querySelectorAll('.app__card-button')//para selecionar mais de um elemento 
+const musicaFocoInput = document.querySelector('#alternar-musica');
+const musica = new Audio ('sons/luna-rise-part-one.mp3');
+musica.loop = true;
+
+musicaFocoInput.addEventListener('change', () => {
+    if(musica.paused) {
+        musica.play();
+    } else {
+        musica.pause();
+    }
+})
 
 focoBt.addEventListener('click', () => {
     alterarContexto('foco')
@@ -25,7 +37,7 @@ curtoBt.addEventListener('click', () => {
 
 longoBt.addEventListener('click', () => {
     alterarContexto('descanso-longo')
-    longoBt.classList.add('active'//add class
+    longoBt.classList.add('active')//add class
 })
 function alterarContexto(contexto){
     botoes.forEach(function (contexto){//para selecionar cada um dos elementos ao clicar
