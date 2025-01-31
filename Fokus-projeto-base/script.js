@@ -41,7 +41,7 @@ longoBt.addEventListener('click', () => {
 })
 function alterarContexto(contexto){
     botoes.forEach(function (contexto){//para selecionar cada um dos elementos ao clicar
-        contexto.classList.remove('active')//para remover class
+    contexto.classList.remove('active')//para remover class
     })
     html.setAttribute('data-contexto', contexto)
     banner.setAttribute('src',`imagens/${contexto}.png`)
