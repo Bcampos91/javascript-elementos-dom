@@ -4,44 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>exercicios Botões</title>
+    
     <style>
         fieldset{
             width: 200px;
         }
-        div.btfoco{
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: blue;
-            color: white;
-            
-        }
-        div.btdescansoCurto{
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: red;
-            color: white;
-        }
-        div.btdescansolongo{
-            font-family: Arial, Helvetica, sans-serif;
-            background-color: green;
-            color: white;
-        }
+        .app__section-card-container {
+    display: flex;
+    justify-content: center;
+}
+        .app__card {
+    border-radius: 3.2rem;
+    border: 0.2rem solid black;
+    background: red;
+    padding: 2.4rem;
+    margin: 8rem 0;
+    width: 59rem;
+    max-width: 90%;
+}
+        .app__card-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.6rem;
+}
+        .app__card-button {
+    font-family: Montserrat;
+    font-size: 1.8rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    background: none;
+    padding: 0.8rem;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+}
+.app__card-button.active {
+    border-radius: 0.8rem;
+    background: green;
+    font-weight: 600;
+}
+
     </style>
+    <script src="exercicios.js" defer></script>
 </head>
 <body>
     <h1>Exercicios de botões</h1>
-    <fieldset>
-        <div class="btfoco">
-            <input type="checkbox" name="ifoco" id="ifoco" >
-            <label for="ifoco">Foco</label>
-        </div>
-        <div class="btdescansoCurto">
-            <input type="checkbox" name="DescansoCurto" id="idescansoCurto">
-            <label for="idescansoCurto">Descanso Curto</label>
-        </div>
-        <div class="btdescansolongo">
-            <input type="checkbox" name="DescansoLongo" id="idescansolongo">
-            <label for="idescansolongo">Descanso longo</label>
-        </div>
-    </fieldset>
+    <div class="app__card">
+        <ul class="app__card-list">
+            <li class="app__card-list-item">
+                <button data-contexto="foco" class="app__card-button app__card-button--foco active">Foco</button>
+            <li class="app__card-list-item">
+                <button data-contexto="short" class="app__card-button app__card-button--curto">Descanso curto</button>
+            </li>
+            <li class="app__card-list-item">
+                <button data-contexto="long" class="app__card-button app__card-button--longo">Descanso longo</button>
+            </li>
+        </ul>
     
 </body>
 </html>
