@@ -15,6 +15,9 @@ const botoes = document.querySelectorAll('.app__card-button')//para selecionar m
 const musicaFocoInput = document.querySelector('#alternar-musica');
 const musica = new Audio ('sons/luna-rise-part-one.mp3');
 const startPauseBt = document.querySelector('#start-pause')
+const comecar = new Audio ('sons/play.wav');
+const zero = new Audio('sons/beep.mp3');
+const pause =new Audio('sons/pause.mp3');
 
 let tempoDecorridoEmSegundos = 5
 let intervaloid = null
@@ -70,32 +73,43 @@ function alterarContexto(contexto){
             break;
     }
 }
+//Iniciando a contagem regressiva automaticamente;
 
 const contagemRegressiva = () => {
     if(tempoDecorridoEmSegundos <= 0){
         zerar()
-        alert('Tempo finalizado!')
+        zero.play()
         return
     }
     tempoDecorridoEmSegundos -= 1
     console.log('temporizador: ' + tempoDecorridoEmSegundos)
 }
+// Pausando a contagem regressiva a partir do clique;
+startPauseBt.addEventListener('click',iniciarOuPausar)
 
-startPauseBt.addEventListener('click',iniciar)
-function iniciar(){
+//Controlando o temporizador com som;
+function iniciarOuPausar(){
     if(intervaloid){
+        pause.play() // áudio executado quando cronômetro for pausado
         zerar()
         return
+        
+    }else{
+        comecar.play() // áudio executado quando cronômetro iniciar
+
+        intervaloid = setInterval(contagemRegressiva,1000)//SetInterval=executar código repetidamente em um intervalo de tempo definido
     }
         
-   
-    intervaloid = setInterval(contagemRegressiva,1000)
 
 }
 function zerar(){
-    clearInterval(intervaloid)
+    clearInterval(intervaloid) //clearInterval()=impede a execução do código que está dentro dela.
     intervaloid = null
 }
+
+
+
+
 
 
 
